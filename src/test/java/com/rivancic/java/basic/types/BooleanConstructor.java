@@ -1,4 +1,4 @@
-package com.rivancic.java.basic;
+package com.rivancic.java.basic.types;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
