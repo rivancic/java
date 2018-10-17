@@ -4,7 +4,6 @@ import org.junit.Test;
 
 public class JVM {
 
-
   /**
    * 
    * force JVM to run Garbage Collector?
