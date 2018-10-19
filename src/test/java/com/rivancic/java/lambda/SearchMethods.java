@@ -1,6 +1,8 @@
 package com.rivancic.java.lambda;
 
 import static org.junit.Assert.assertEquals;
+import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 import org.junit.Test;
 
@@ -43,6 +45,44 @@ import org.junit.Test;
  */
 public class SearchMethods {
 
+  Stream<String> getNamesStream() {
+    return Stream.of("Luca", "Simon", "David", "Marco", "Joel", "Michael", "Lukas", "Fabian",
+      "Pascal",
+      "Kevin", "Nicolas", "Samuel", "Jan", "Patrick", "Daniel", "Robin", "Florian");
+  }
+
+  /**
+   * The {@link Stream#findFirst()} method returns an {@link Optional} object that holds the first
+   * element of the stream. If the stream is empty, empty Optional is returned. If the stream is not
+   * ordered any element can be returned.
+   */
+  @Test
+  public void findFirst() {
+
+    Optional<String> firstElement = getNamesStream().findFirst();
+    assertEquals(true, firstElement.isPresent());
+    assertEquals(true, firstElement.get().length() > 0);
+  }
+
+  /**
+   * The {@link Stream#findAny()} returns random element wrapped in an optional. If the sream is
+   * empty the optional will be empty.
+   */
+  @Test
+  public void findAny() {
+
+    Optional<String> firstElement = getNamesStream().findAny();
+    assertEquals(true, firstElement.isPresent());
+    assertEquals(true, firstElement.get().length() > 0);
+  }
+
+  @Test
+  public void findAnyOnEmptyStream() {
+
+    Optional<String> firstElement = Stream.<String>empty().findAny();
+    assertEquals(false, firstElement.isPresent());
+  }
+
   /**
    * The {@link Stream#anyMatch(java.util.function.Predicate)} method returns a boolean value of
    * true if any elements of the stream match the predicate, and false otherwise. In the example
@@ -50,10 +90,7 @@ public class SearchMethods {
    */
   @Test
   public void anyMatch() {
-    Stream<String> names =
-      Stream.of("Luca", "Simon", "David", "Marco", "Joel", "Michael", "Lukas", "Fabian", "Pascal",
-        "Kevin", "Nicolas", "Samuel", "Jan", "Patrick", "Daniel", "Robin", "Florian");
-    boolean doesAnyNameStartsWithP = names.anyMatch(name -> name.startsWith("P"));
+    boolean doesAnyNameStartsWithP = getNamesStream().anyMatch(name -> name.startsWith("P"));
     assertEquals(true, doesAnyNameStartsWithP);
   }
 
@@ -66,10 +103,17 @@ public class SearchMethods {
    */
   @Test
   public void nonMatch() {
-    Stream<String> names =
-      Stream.of("Luca", "Simon", "David", "Marco", "Joel", "Michael", "Lukas", "Fabian", "Pascal",
-        "Kevin", "Nicolas", "Samuel", "Jan", "Patrick", "Daniel", "Robin", "Florian");
-    boolean noNameIsStartingWIthMir = names.noneMatch(name -> name.startsWith("Mir"));
+    boolean noNameIsStartingWIthMir = getNamesStream().noneMatch(name -> name.startsWith("Mir"));
     assertEquals(true, noNameIsStartingWIthMir);
+  }
+
+  /**
+   * The {@link Stream#allMatch(java.util.function.Predicate)} method returns a boolean value if the
+   * {@link Predicate} matches for all elements in the stream.
+   */
+  @Test
+  public void allMatch() {
+    boolean allNamesLongerThan5Characters = getNamesStream().allMatch(name -> name.length() > 4);
+    assertEquals(false, allNamesLongerThan5Characters);
   }
 }
