@@ -4,6 +4,17 @@ import java.util.Comparator;
 import java.util.stream.Stream;
 import org.junit.Test;
 
+/**
+ * <p>
+ * Java Stream API
+ * </p>
+ * <p>
+ * Sort a collection using Stream API
+ * </p>
+ * 
+ * @author Renato Ivancic <r.ivancic@dodax.com>
+ *
+ */
 public class SortedTest {
 
   class Voucher {

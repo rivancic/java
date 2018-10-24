@@ -35,6 +35,10 @@ public class MeasuringExecutionTimeTest {
    * current Instant from the system clock. Class Duration contains helper method that can calculate
    * the Duration passed between starting and ending Instant.
    * 
+   * With this approach it is much easier to switch between different time units. You just call upon
+   * {@link Duration#between(java.time.temporal.Temporal, java.time.temporal.Temporal)} different
+   * to... unit method {@link Duration#toNanos()}, {@link Duration#toMillis()}
+   * 
    * @throws Exception
    */
   @Test
