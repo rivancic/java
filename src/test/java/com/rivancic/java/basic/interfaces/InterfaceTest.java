@@ -1,4 +1,4 @@
-package com.rivancic.java.basic;
+package com.rivancic.java.basic.interfaces;
 
 interface I1 {
   void m1() throws java.io.IOException;

@@ -1,8 +1,7 @@
-package com.rivancic.java.basic;
+package com.rivancic.java.basic.interfaces;
 
-import com.rivancic.java.basic.B1.B2;
-import com.rivancic.java.basic.TestInterface.A1;
-import com.rivancic.java.basic.TestInterface.A2;
+import com.rivancic.java.basic.interfaces.B1.B2;
+import com.rivancic.java.basic.interfaces.TestInterface.A1;
 import org.junit.Test;
 
 interface TestInterface {

@@ -1,4 +1,4 @@
-package com.rivancic.java.basic;
+package com.rivancic.java.basic.interfaces;
 
 import org.junit.Test;
 
