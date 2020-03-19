@@ -2,6 +2,7 @@ package com.rivancic.java.genericscollections;
 
 import static org.junit.Assert.*;
 import java.util.ArrayDeque;
+import java.util.Deque;
 import org.junit.Test;
 
 /**
@@ -11,6 +12,17 @@ import org.junit.Test;
  */
 public class DequeTest {
 
+  /**
+   * If Deque is empty then remove will Throw exception
+   */
+ @Test
+  public void dequeRemoveEmptyExceptionTest() {
+      Deque<Character> chars = new ArrayDeque<>();
+      chars.add('A');
+      chars.remove();
+      chars.remove();
+      System.out.println(chars);
+  }
   
   /**
    * FIFO implementation with the ArrayDeque.

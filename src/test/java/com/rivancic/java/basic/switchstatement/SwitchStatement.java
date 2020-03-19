@@ -1,6 +1,5 @@
-package com.rivancic.java.basic;
+package com.rivancic.java.basic.switchstatement;
 
-import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class SwitchStatement {
@@ -34,46 +33,6 @@ public class SwitchStatement {
          * System.out.println("Passed"); break;
          */
     }
-  }
-
-  /**
-   * In switch statement only convertible int, String and ENUM values are enabled. Not even boolean!
-   * 
-   * Valid variable types are:
-   * <ul>
-   * <li>char</li>
-   * <li>byte</li>
-   * <li>int</li>
-   * <li>short</li>
-   * <li>Wrapper classes of byte, char, int</li>
-   * <li>String</li>
-   * <li>Enums</li>
-   * </ul>
-   * 
-   * Invalid variable types are:
-   * <ul>
-   * <li>long</li>
-   * <li>float</li>
-   * <li>double</li>
-   * <li>Any other object</li>
-   * <li>boolean</li>
-   * </ul>
-   * 
-   * @throws Exception
-   */
-  @Test
-  public void intSwitchStatement() throws Exception {
-    char var = 10;
-    String result = "";
-    switch (var) {
-      case 10:
-        result = "TEN";
-        break;
-      default:
-        result = "DEFAULT";
-    }
-
-    assertEquals("TEN", result);
   }
 
 
@@ -137,20 +96,4 @@ public class SwitchStatement {
     }
   }
 
-  /**
-   * Be cautious. Char value '7' is stored as int 55. The case statement could also be case 55:
-   * 
-   * @throws Exception
-   */
-  @Test
-  public void testIntCharSwitch() throws Exception {
-    int var = '7';
-    switch (var) {
-      case '7':
-        System.out.println("Lucky no. 7");
-        break;
-      default:
-        System.out.println("DEFAULT");
-    }
-  }
 }

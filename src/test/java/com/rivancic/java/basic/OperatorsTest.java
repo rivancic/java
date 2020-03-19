@@ -1,6 +1,7 @@
 package com.rivancic.java.basic;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class OperatorsTest {
@@ -111,5 +112,26 @@ public class OperatorsTest {
     String s4 = "Java"; // Line 6
     String s5 = "Java"; // Line 7
     int i = 1; // Line 9
+  }
+
+  /**
+   * If division operator is executed upon two integer numbers the result is surprisingly integer.
+   * Decimal places are truncated not rounded.
+   * 
+   * https://www.cs.umd.edu/~clin/MoreJava/Intro/expr-int-div.html
+   */
+  @Test
+  public void integerDivisionTest() {
+    int result = 1/2;
+    assertThat(result, is(0));
+  }
+  
+  /**
+   * If divider is 0 then the {@link ArithmeticException} will be thrown.
+   * @throws Exception
+   */
+  @Test(expected=ArithmeticException.class)
+  public void divisionByZero() {
+    int result = 1/0;
   }
 }

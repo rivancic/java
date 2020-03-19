@@ -2,6 +2,7 @@ package com.rivancic.java.stream;
 
 import static org.junit.Assert.assertEquals;
 import java.util.Optional;
+import java.util.OptionalInt;
 import org.junit.Test;
 
 /**
@@ -41,5 +42,15 @@ public class OptionalTest {
     assertEquals(false, isItemPresent);
 
     // then
+  }
+
+  /**
+   * Supplier has to be provided, In this case method reference is passed as parameter. One could
+   * not be able to pass just a new instance of the exception itself
+   */
+  @Test
+  public void optionalOrThrowTest() {
+    OptionalInt optionalInt = OptionalInt.empty();
+    optionalInt.orElseThrow(MyException::new);
   }
 }

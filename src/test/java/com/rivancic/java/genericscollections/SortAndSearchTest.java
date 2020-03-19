@@ -7,6 +7,9 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
+/**
+ * Comparator is implemented in java.util class.
+ */
 public class SortAndSearchTest {
 
   /**

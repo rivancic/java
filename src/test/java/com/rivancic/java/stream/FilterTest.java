@@ -1,6 +1,7 @@
 package com.rivancic.java.stream;
 
 import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -64,5 +65,21 @@ public class FilterTest {
     assertEquals(2, complexProgrammingLanguages.size());
     assertEquals("Assembler", complexProgrammingLanguages.get(0).name);
     assertEquals("C", complexProgrammingLanguages.get(1).name);
+  }
+
+  /**
+   * sorted is intermediate operation.
+   */
+  @Test
+  public void filterTestWithLocalVariableTest() {
+    List<Integer> list = Arrays.asList(-80, 100, -40, 25, 200);
+    Predicate<Integer> predicate = num -> {
+      int ctr = 1;
+      boolean result = num > 0;
+      System.out.print(ctr++ + ".");
+      return result;
+    };
+
+    list.stream().filter(predicate).sorted();
   }
 }

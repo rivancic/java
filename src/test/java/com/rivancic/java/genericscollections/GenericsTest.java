@@ -52,7 +52,7 @@ public class GenericsTest {
   }
   
   @Test
-  public void rewGenericList() throws Exception {
+  public void rawGenericList() throws Exception {
     List list = new ArrayList();
     list.add("7");
     list.add(7);

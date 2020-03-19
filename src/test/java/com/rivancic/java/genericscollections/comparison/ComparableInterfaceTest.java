@@ -9,7 +9,7 @@ import org.junit.Test;
 /**
  * <p>
  * If classes implement comparable they can be used in data structured that require comparison.
- * Comparable is functional interface. The only public abstract method is
+ * Comparable is functional interface. It is defined in java.lang package. The only public abstract method is
  * {@link Comparable#compareTo(Object).}
  * </p>
  * <p>

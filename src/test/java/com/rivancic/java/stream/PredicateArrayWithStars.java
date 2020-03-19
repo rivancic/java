@@ -1,6 +1,12 @@
 package com.rivancic.java.stream;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 import org.junit.Test;
 
 public class PredicateArrayWithStars {
@@ -25,4 +31,35 @@ public class PredicateArrayWithStars {
       }
     }
   }
+
+  @Test
+  public void predicateWithCounter() {
+    List<Integer> list = Arrays.asList(-80, 100, -40, 25, 200);
+    Predicate<Integer> predicate = num -> {
+      int ctr = 1;
+      boolean result = num > 0;
+      System.out.print(ctr++ + ".");
+      return result;
+    };
+
+    List<Integer> list1 = Arrays.asList(10, 100, 1000);
+    list1.replaceAll(i -> (-(i++)));
+
+    System.out.println(list1);
+
+    list.stream().filter(predicate).count();
+  }
+
+
+    @Test
+    public void main() {
+      Consumer<Integer> add = i -> Counter.count += i;
+      Consumer<Integer> print = System.out::println;
+      Consumer<Integer> print2 = i -> System.out.println("a" + i);
+      add.andThen(print).andThen(print2).accept(11); //Line 10
+    }
+}
+
+class Counter {
+  static int count = 4;
 }

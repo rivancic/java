@@ -1,13 +1,17 @@
 package com.rivancic.java.date;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.UnsupportedTemporalTypeException;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import org.junit.Test;
 
 /**
@@ -65,4 +69,18 @@ public class FormattingDatesTest {
     DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
     assertEquals("Tuesday, January 1, 2019", formatter.format(date));
   }
+
+  /**
+   * Text representation of the date formatted on date instance is the same as formatted on formatter instance if
+   * the same pattern is used.
+   */
+  @Test
+  public void dateOrFormatterFormatTest() {
+    LocalDate date = LocalDate.of(2018, 11, 4);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-uuuu");
+    assertTrue(formatter.format(date).equals(date.format(formatter)));
+  }
+
+
 }
+

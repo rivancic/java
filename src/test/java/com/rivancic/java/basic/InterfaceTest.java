@@ -4,10 +4,7 @@ interface I1 {
   void m1() throws java.io.IOException;
 }
 
-
 public class InterfaceTest {
-
-
 
   class C1 implements I1 {
 

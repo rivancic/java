@@ -9,11 +9,21 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import org.junit.Test;
 
+/**
+ * Notice that Java 8 date classes do not have any constructors. Instead you have to call factory
+ * method of(), which internally calls create() method.
+ * 
+ * Date classes are immutable and thread safe.
+ * 
+ * @author rivancic
+ *
+ */
 public class DateTest {
 
 
   /**
-   * Will throw: java.time.DateTimeException: Invalid date 'SEPTEMBER 31'
+   * Will throw: java.time.DateTimeException: Invalid date 'SEPTEMBER 31'. Factory method checks the
+   * validity of the time.
    */
   @Test
   public void biggerDay() throws Exception {
@@ -144,10 +154,7 @@ public class DateTest {
   /**
    * 24 hout is not valid, also invalid are values 60 and more for minutes and seconds. It will
    * throw
-   * 
-   * @param hour the hour-of-day to represent, from 0 to 23
-   * @param minute the minute-of-hour to represent, from 0 to 59
-   * @param second the second-of-minute to represent, from 0 to 59
+   *
    */
   @Test(expected = DateTimeException.class)
   public void testName1() {
@@ -156,7 +163,20 @@ public class DateTest {
   }
 
   /**
-   * All parse methods are executed successfully.
+   * If LocalDate is constructed with factory method LocalDate#ofEpochDay with negative value the
+   * LocalDate value will be before year 1970.
+   */
+  @Test
+  public void negativeEpochDateTest() {
+    LocalDate date = LocalDate.ofEpochDay(-1);
+    System.out.println(date);
+    assertEquals(31, date.getDayOfMonth());
+    assertEquals(12, date.getMonthValue());
+    assertEquals(1969, date.getYear());
+  }
+
+  /**
+   * All parse methods are executed successfully. Remember dates are compared with equals method.
    * 
    * @throws Exception
    */

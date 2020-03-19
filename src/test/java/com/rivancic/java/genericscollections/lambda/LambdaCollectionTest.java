@@ -3,9 +3,7 @@ package com.rivancic.java.genericscollections.lambda;
 import static org.junit.Assert.*;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -44,27 +42,5 @@ public class LambdaCollectionTest {
   public void forEachTest() {
     List<String> regions = Arrays.asList("Prlekija", "Prekmurje", "Podravska");
     regions.forEach(System.out::println);
-  }
-
-  /**
-   * Map interface now contains {@link Map#merge(Object, Object, java.util.function.BiFunction)}
-   * function that modifies an value of a key. It can be used for example for the word count.
-   * 
-   * 1. If key does not exists yet add it to the map
-   * 2. If value is null replace it with the new value
-   * 3. If value is not null apply BiFunction on new (first parameter) and old (second parameter) value
-   */
-  @Test
-  public void mergeFunctionWithMap() throws Exception {
-    Map<Character, Integer> charCount = new HashMap<>();
-    String text =
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-    
-    text.chars().forEach(i -> {
-      charCount.merge((char)i, 1, Integer::sum);
-      
-    });
-    System.out.println(charCount);
-    
   }
 }

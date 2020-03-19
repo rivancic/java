@@ -1,4 +1,4 @@
-package com.rivancic.java.basic;
+package com.rivancic.java.genericscollections.map;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
