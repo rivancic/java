@@ -1,5 +1,7 @@
 package com.rivancic.java.basic;
 
+import org.junit.Test;
+
 class Outer {
 
   public void print(int x) {
@@ -14,10 +16,10 @@ class Outer {
   }
 }
 
-public class InnerClassTest1 {
+public class InnerLocalClassTest {
 
-
-  public static void main(String[] args) {
+  @Test
+  public void test() {
     new Outer().print(100);
   }
 }
