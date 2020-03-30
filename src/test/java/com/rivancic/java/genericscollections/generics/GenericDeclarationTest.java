@@ -1,4 +1,4 @@
-package com.rivancic.java.genericscollections;
+package com.rivancic.java.genericscollections.generics;
 
 public class GenericDeclarationTest {
 }

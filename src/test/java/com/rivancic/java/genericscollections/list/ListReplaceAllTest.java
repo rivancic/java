@@ -1,4 +1,4 @@
-package com.rivancic.java.genericscollections;
+package com.rivancic.java.genericscollections.list;
 
 import java.util.Arrays;
 import java.util.List;

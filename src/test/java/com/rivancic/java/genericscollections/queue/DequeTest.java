@@ -1,4 +1,4 @@
-package com.rivancic.java.genericscollections;
+package com.rivancic.java.genericscollections.queue;
 
 import static org.junit.Assert.*;
 import java.util.ArrayDeque;

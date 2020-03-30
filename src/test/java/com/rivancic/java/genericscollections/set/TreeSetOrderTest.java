@@ -1,4 +1,4 @@
-package com.rivancic.java.genericscollections;
+package com.rivancic.java.genericscollections.set;
 
 import java.util.Set;
 import java.util.TreeSet;
