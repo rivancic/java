@@ -1,4 +1,4 @@
-package com.rivancic.java.genericscollections;
+package com.rivancic.java.genericscollections.generics;
 
 /**
  * If generic type is not specified at the declaration time then by default it can hold object.

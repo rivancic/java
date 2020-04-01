@@ -1,11 +1,8 @@
 package com.rivancic.java.genericscollections.set;
 
-import static org.junit.Assert.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Collection;
+import static org.hamcrest.Matchers.contains;
+import static org.junit.Assert.assertEquals;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NavigableSet;
@@ -39,7 +36,7 @@ public class TreeSetTest {
    * next element is boxed 3. Numeric value doesn't have a compatible comparator, for this reason
    * runtime exception will be thrown.
    */
-  @Test
+  @Test(expected = ClassCastException.class)
   public void testNonGenericTreeSet() {
     Set set = new TreeSet();
     set.add("2");
@@ -67,8 +64,30 @@ public class TreeSetTest {
     treeSet.add("123");
     treeSet.add("Element");
 
-    String nexOrTheSameElement = treeSet.ceiling("El");
-    assertEquals("Element", nexOrTheSameElement);
+    /**
+     * They are sorted in following order
+     *
+     * 123
+     * ELEMENT
+     * Element
+     * element
+     */
+
+    // Lover - sorted lower
+    String lowerElement = treeSet.lower("Element");
+    assertEquals("ELEMENT", lowerElement);
+
+    // Floor - sorted lower or equal
+    String lowerOrTheSameElement = treeSet.floor("Element");
+    assertEquals("Element", lowerOrTheSameElement);
+
+    // Higher - sorted higher
+    String higherElement = treeSet.higher("Element");
+    assertEquals("element", higherElement);
+
+    // Ceiling - sorted higher or equal
+    String higherOrTheSameElement = treeSet.ceiling("Elem");
+    assertEquals("Element", higherOrTheSameElement);
 
     assertEquals(4, treeSet.size());
     assertEquals("123", treeSet.pollFirst());
@@ -80,8 +99,6 @@ public class TreeSetTest {
   /**
    * TreeSet requires that the elements implement {@link Comparable} interfaces if no
    * {@link Comparator} is provided. Otherwise the code will throw an {@link ClassCastException}
-   * 
-   * @throws Exception
    */
   @Test(expected=ClassCastException.class)
   public void treeSetComparator() throws ClassCastException {
@@ -93,7 +110,7 @@ public class TreeSetTest {
   }
   
   @Test
-  public void treeSetWithProvidedComparator() throws Exception {
+  public void treeSetWithProvidedComparator() {
     Set<Integer> treeSet = new TreeSet<>(Comparator.reverseOrder());
     treeSet.add(4);
     treeSet.add(2);

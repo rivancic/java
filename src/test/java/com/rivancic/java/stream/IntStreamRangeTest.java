@@ -7,6 +7,8 @@ public class IntStreamRangeTest {
 
   /**
    * If starting index is larger than ending index then the generated stream will be empty.
+   *
+   * Note that the long count() is terminal method in IntStream.
    */
   @Test
     public void rangeTest() {

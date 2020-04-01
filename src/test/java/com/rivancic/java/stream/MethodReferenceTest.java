@@ -30,6 +30,8 @@ class Rope {
  * RedRopeFilter#filter method is accessed by its instance because filter() method is not static one and it needs
  * an instance upon which it is invoked. Class itself is static for this reason we do not need to
  * create first Rope instance and then RedRopeFilterInstance.
+ *
+ * Link in java https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
  */
 public class MethodReferenceTest {
   public static void main(String[] args) {
