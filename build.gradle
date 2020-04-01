@@ -1,19 +1,21 @@
 buildscript {
   repositories {
     mavenCentral()
-    jcenter()
-    google()
+    jcenter { url "http://jcenter.bintray.com/"}
   }
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
 
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 // Credentials for private dodax repositories has to be defined as environmental variables
 repositories {
-  jcenter()
+  jcenter { url "http://jcenter.bintray.com/"}
   mavenCentral()
-  google()
 }
 
 ext['junit_version'] = '4.12'

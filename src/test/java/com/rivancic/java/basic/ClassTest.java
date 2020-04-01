@@ -2,7 +2,7 @@ package com.rivancic.java.basic;
 
 import org.junit.Test;
 
-class ClassTest {
+public class ClassTest {
 
   @Test
   public void testTrickyAssignmentMethod() throws Exception {
