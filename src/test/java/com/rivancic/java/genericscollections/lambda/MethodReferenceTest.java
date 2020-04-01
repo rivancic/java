@@ -1,4 +1,4 @@
-package com.rivancic.java.genericscollections;
+package com.rivancic.java.genericscollections.lambda;
 
 import static org.junit.Assert.*;
 import java.util.Map;

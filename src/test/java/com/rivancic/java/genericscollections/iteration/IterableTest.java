@@ -1,6 +1,5 @@
-package com.rivancic.java.genericscollections;
+package com.rivancic.java.genericscollections.iteration;
 
-import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -35,6 +34,9 @@ public class IterableTest {
     }
   }
 
+  /**
+   * In order that we can use for-each loop the object has to implement iterable interface
+   */
   @Test
   public void iterableImplementationTest() {
     Team team = new Team();

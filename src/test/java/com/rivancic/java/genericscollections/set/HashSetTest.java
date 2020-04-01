@@ -49,7 +49,7 @@ public class HashSetTest {
    * If {@link Set#add(Object)} successfully adds an item it returns true otherwise false.
    */
   @Test
-  public void hashSetInsertions() {
+  public void hashSetInsertionsAndIterationTest() {
     
     Set<Number> numbers = new HashSet<>();
     
@@ -72,6 +72,7 @@ public class HashSetTest {
     assertThat(numbers, containsInAnyOrder(10,null,11,501L));
     
     // Printing contained items in the set
+    // Notice that the order is not predictable in the set iterator
     Iterator iterator = numbers.iterator();
     while (iterator.hasNext()) {
       System.out.println(iterator.next());

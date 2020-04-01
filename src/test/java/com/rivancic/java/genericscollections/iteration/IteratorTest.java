@@ -1,14 +1,18 @@
-package com.rivancic.java.genericscollections;
+package com.rivancic.java.genericscollections.iteration;
 
-import com.rivancic.java.genericscollections.IterableTest.Team;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 import org.junit.Test;
 
+/**
+ * Two most important methods of {@link Iterator} interface are
+ *
+ * boolean hasNext()
+ *
+ * and
+ *
+ * T next()
+ */
 public class IteratorTest {
 
   @Test
